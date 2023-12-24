@@ -1,27 +1,28 @@
 <script setup lang="ts">
 import Header from "../../organisms/Header.vue";
-
+import SearchComponent from "../mainjob/search/index.vue";
 import { useAuthStore } from "@/stores/auth";
 defineProps<{}>();
 const auth = useAuthStore();
 </script>
 
+
 <template>
   <Header />
   <div class="__default__ body-layout">
-    <slot class="body"></slot>
+    <!-- <SearchComponent /> -->
+    <slot class="body">
+      
+    </slot>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .body-layout {
-  width: 100%;
-  max-width: 1440px;
-  padding: 0 20px;
   margin: 0 auto;
-  margin-top: 56px;
-  overflow-y: auto;
-  height: calc(100vh - 56px);
+  width: 1300px;
+  max-width: 100%;
+  margin-top: 70px;
 }
 .bg {
   position: absolute;

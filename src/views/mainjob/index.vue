@@ -1,7 +1,7 @@
 <template>
   <div>
     <SearchComponent />
-    <JobList />
+    <!-- <JobList /> -->
   </div>
 </template>
 <script setup lang="ts">

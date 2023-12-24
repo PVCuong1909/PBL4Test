@@ -45,10 +45,10 @@ isLogin.value = authStore.getIsLoggedIn()
 <template>
     <div class="nav-container">
         <div class="nav-container__body">
-            <p class="nav-container__body__logo">Tìm kiếm việc làm</p>
+            <p class="nav-container__body__logo">PBL4: Web tìm kiếm việc làm</p>
             <div class="nav-container__body__action" v-if="!authStore.getIsLoggedIn()">
-                <el-button type="primary" @click="goToLogin">Login</el-button>
-                <el-button type="primary" @click="goToRegister" plain>Register</el-button>
+                <button  @click="goToLogin" class="nav-container__body__btn">Đăng nhập</button>
+                <button  @click="goToRegister" plain class="nav-container__body__btn">Đăng ký</button>
             </div>
             <div class="nav-container__body__info" v-else>
                 <el-icon><Avatar /></el-icon> |
@@ -83,15 +83,16 @@ isLogin.value = authStore.getIsLoggedIn()
     top: 0;
     left: 0;
     width: 100%;
-    height: 56px;
+    height: 70px;
     display: flex;
     justify-content: center;
     border-bottom: 1px solid #ebeef5;
     background-color: #fff;
+    box-shadow: 0 1px 20px rgba(44, 127, 217, 0.5);
 
     &__body {
-        width: 100%;
-        max-width: 1440px;
+        width: 1200px;
+        max-width: 100%;
         padding: 0 20px;
         display: flex;
         justify-content: space-between;
@@ -100,12 +101,12 @@ isLogin.value = authStore.getIsLoggedIn()
         &__logo {
             font-size: 1.5rem;
             font-weight: 700;
-            // @include gradient-text;
-            color: $color-danger;
+            color: #77bbe8;
         }
 
         &__action {
             display: flex;
+            width: 320px;
         }
         &__info {
             display: flex;
@@ -117,6 +118,25 @@ isLogin.value = authStore.getIsLoggedIn()
                     transform: translateX(10px);
                     transition: all 0.2s linear;
                 }
+            }
+        }
+        &__btn {
+            border-radius: 25px;
+            width: 80%;
+            height: 40px;
+            font-size: 0.8rem;
+            color: white;
+            font-weight: 700;
+            background: #0069db;
+            border: 0px;
+            cursor: pointer;
+            transition: opacity 0.25s ease-out;
+            margin: 0 5px;
+            &:hover{
+                color: #0069db;
+                background-color: #fff;
+                border: 1px solid #0069db;
+                transition: all 0.3s ease-in-out;
             }
         }
     }

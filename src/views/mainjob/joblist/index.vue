@@ -2,10 +2,10 @@
   <div class="container-listjob">
     <div class="card-listjob" @click="toJobDetail(job.id)">
       <div class="img-card">
-        <img src="http://www.gravatar.com/avatar/?d=mp" alt="image" />
+        <img :src="job.Image" alt="image" />
       </div>
       <div class="text-card">
-        <h3>{{ job?.Title || "No Title" }}</h3>
+        <h3 class="title">{{ job?.Title || "No Title" }}</h3>
         <p class="company">{{ job?.Company || "No Company" }}</p>
         <p class="location">{{ job?.Location || "No Location" }}</p>
         <span class="salary">{{ job?.Salary || "No Salary" }} |</span>
@@ -29,8 +29,8 @@ const toJobDetail = (idChoose: string) => {
 </script>
 <style scoped>
 .img-card img {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
 }
 .img-card {
   float: left;
@@ -38,7 +38,7 @@ const toJobDetail = (idChoose: string) => {
 .card-listjob {
   display: grid;
   grid-template-columns: 100px auto;
-  gap: 50px;
+  gap: 15px;
   background-color: #f5fcfe;
   padding: 30px 15px;
   border-radius: 15px;
@@ -50,20 +50,43 @@ const toJobDetail = (idChoose: string) => {
   box-shadow: 5px 5px 5px 0px rgb(2, 105, 219, 0.5);
 }
 .container-listjob {
-  padding: 15px 250px;
+  padding: 15px 25px;
 }
+.text-card .title{
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  color: #00133f;
+}
+
+.text-card .title:hover{
+  text-decoration: underline;
+}
+
 .text-card .company {
   color: #343a40;
   font-size: 14px;
   padding-top: 3px;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .text-card .location {
-  color: #343a40;
+  color: #6c757d;
   font-size: 12px;
   padding-top: 3px;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .text-card span {
-  color: #343a40;
+  color: #6c757d;
   font-size: 12px;
   padding-top: 3px;
 }

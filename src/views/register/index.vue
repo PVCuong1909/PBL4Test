@@ -59,49 +59,118 @@ const checkInput: () => boolean = () => {
 </script>
 
 <template>
-    <div class="login-container">
-        <div class="login-container__form">
-            <h1 class="login-container__form__title">Sign up</h1>
-            <div class="login-container__form__content">
-                <div>
-                    <el-input v-model="user.email" validate-event type="email" placeholder="Your Email" class="login-container__form__content__input" />
-                    <span class="login-container__form__content__error" v-show="isEnterValue[0]">Please enter your name</span>
-                </div>
-                <div>
-                    <el-input v-model="user.name" placeholder="Your name" class="login-container__form__content__input" />
-                    <span class="login-container__form__content__error" v-show="isEnterValue[1]">Please enter your name</span>
-                </div>
-                <div>
-                    <el-input v-model="user.password" type="password" placeholder="Your password" show-password class="login-container__form__content__input" />
-                    <span class="login-container__form__content__error" v-show="isEnterValue[2]">Please enter your password</span>
-                </div>
-                <div>
-                    <el-input v-model="rePassword" type="password" placeholder="Confirm Your password" show-password class="login-container__form__content__input" />
-                    <span class="login-container__form__content__error" v-show="isEnterValue[3]">Please enter your confirm password</span>
-                </div>
-                <span class="login-container__form__content__error" v-show="isMatchPassword">The entered passwords do not match. Try again.</span>
-                <el-button @click="signUp" class="login-container__form__content__submit" type="primary">Sign up</el-button>
-                <div class="login-container__form__content__login">
-                    <span>Already have an account?</span>
-                    <el-link type="primary" href="/login">Sign in</el-link>
-                </div>
+    <div class="row">
+        <div class="grid__column-4 banner-container">
+            <div class="banner-container__circle"></div>
+            <div class="banner-container__content">
+                <h1>Xây dựng
+                    <br>
+                <b>Sự nghiệp
+                    <br>
+                <span class="text-warning">thành công!</span>
+                </b>
+                </h1>
             </div>
         </div>
+        <div class="grid__column-6">
+            <div class="login-container">
+                <div class="login-container__form">
+                    <h1 class="login-container__form__title">Đăng ký</h1>
+                    <div class="login-container__form__content">
+                    <div>
+                        <el-input v-model="user.email" validate-event type="email" placeholder="Nhập Email" class="login-container__form__content__input" />
+                        <span class="login-container__form__content__error" v-show="isEnterValue[0]">Vui lòng nhập emal</span>
+                    </div>
+                    <div>
+                        <el-input v-model="user.name" placeholder="Nhập tên của bạn" class="login-container__form__content__input" />
+                        <span class="login-container__form__content__error" v-show="isEnterValue[1]">Vui lòng nhập họ tên</span>
+                    </div>
+                    <div>
+                        <el-input v-model="user.password" type="password" placeholder="Nhập mật khẩu" show-password class="login-container__form__content__input" />
+                        <span class="login-container__form__content__error" v-show="isEnterValue[2]">Vui lòng nhập mật khẩu</span>
+                    </div>
+                    <div>
+                        <el-input v-model="rePassword" type="password" placeholder="Xác nhận mật khẩu" show-password class="login-container__form__content__input" />
+                        <span class="login-container__form__content__error" v-show="isEnterValue[3]">Vui lòng nhập để xác nhận mật khẩu</span>
+                    </div>
+                    <span class="login-container__form__content__error" v-show="isMatchPassword">Mật khẩu cảu bạn không chính xác. Vui lòng nhập lại!</span>
+                    <el-button @click="signUp" class="login-container__form__content__submit" type="primary">Đăng ký</el-button>
+                    <div class="login-container__form__content__login">
+                        <span>Bạn đã có tài khoản?</span>
+                        <el-link type="primary" href="/login">Đăng nhập</el-link>
+                  </div>
+            </div>
+        </div>
+        </div>
+        </div>
     </div>
+    
 </template>
 
 <style lang="scss" scoped>
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.grid__column-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 40%;
+}
+.grid__column-6{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 60%;
+    background-color: #ffffff;
+}
+.banner-container{
+    background-image: linear-gradient(to bottom, #0071FF, #0130CB);
+    position: relative;
+    overflow: hidden;
+    color: #fff !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 646px;
+}
+.banner-container__circle{
+    height: 40vw;
+    width: 40vw;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.08);
+    position: absolute;
+    top: -15vw;
+    left: -15vw;
+}
+.banner-container__content h1{
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 150px);
+    width: 300px;
+    font-size: 32px;
+    line-height: 1.2;
+    color: #fff !important;
+}
+.banner-container__content b{
+    font-size: 54px;
+    font-weight: bolder;
+}
+.text-warning{
+    color: #f7b500 ;
+    font-size: 48px;
+}
 .login-container {
     width: 100%;
     height: 100%;
     overflow: hidden;
     &__form {
-        width: 35%;
+        width: 50%;
         margin: auto;
         margin-top: 100px;
         background: #fff;
         padding: 40px 20px 60px;
-        box-shadow: $shadow-primary;
+        box-shadow: 0px 10px 50px 0px rgba(139, 139, 139, 0.4);;
         border-radius: 12px;
         &__title {
             font-weight: 700;

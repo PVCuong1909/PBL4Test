@@ -19,7 +19,7 @@ export interface IJob {
     Describe_job: string
     Benefits: string
     Skills: string
-    Link: string
+    Image: string
     Deadline: string
 }
 export interface IPronvince {
